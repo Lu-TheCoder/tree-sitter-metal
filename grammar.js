@@ -63,7 +63,18 @@ module.exports = grammar({
     struct_declaration: $ => seq(
       "struct",
       $.identifier,
-      $.compound_statement
+      $.struct_body,
+      optional(";")
+    ),
+
+    // Struct body: only allow field-like declarations and attributes
+    struct_body: $ => seq(
+      "{",
+      repeat(choice(
+        $.variable_declaration,
+        $.attribute_annotation
+      )),
+      "}"
     ),
 
     // -------------------------------
@@ -118,7 +129,27 @@ module.exports = grammar({
 
     expression_statement: $ => seq($.expression, ";"),
 
-    expression: _ => /[^;\[\]\(\)]+/, // very basic placeholder
+    expression: $ => $.assignment,
+
+    assignment: $ => choice(
+      seq($.identifier, "=", $.assignment),
+      $.binary_expression,
+      $.primary
+    ),
+
+    binary_expression: $ => choice(
+      ...["+", "-", "*", "/"].map(op =>
+        prec.left(1, seq($.primary, op, $.primary))
+      )
+    ),
+
+    primary: $ => choice(
+      $.identifier,
+      $.number,
+      seq("(", $.expression, ")")
+    ),
+
+    number: _ => /\d+(\.\d+)?/,
 
     // -------------------------------
     // Identifiers

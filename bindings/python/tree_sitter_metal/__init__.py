@@ -1,4 +1,4 @@
-"""Metal tree-sitter"""
+"""Metal grammar for tree-sitter"""
 
 from importlib.resources import files as _files
 

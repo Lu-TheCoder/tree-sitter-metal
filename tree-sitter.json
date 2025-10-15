@@ -16,7 +16,7 @@
   "metadata": {
     "version": "0.1.0",
     "license": "MIT",
-    "description": "Metal grammer for tree-sitter parsing",
+    "description": "Metal grammar for tree-sitter",
     "authors": [
       {
         "name": "LuTheCoder",

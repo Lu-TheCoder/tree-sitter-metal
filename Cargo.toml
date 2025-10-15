@@ -1,6 +1,6 @@
 [package]
 name = "tree-sitter-metal"
-description = "Metal grammer for tree-sitter parsing"
+description = "Metal grammar for tree-sitter"
 version = "0.1.0"
 authors = ["LuTheCoder <luthecoder@gmail.com>"]
 license = "MIT"
@@ -8,7 +8,7 @@ readme = "README.md"
 keywords = ["incremental", "parsing", "tree-sitter", "metal"]
 categories = ["parser-implementations", "parsing", "text-editors"]
 repository = "https://github.com/lu-thecoder/tree-sitter-metal"
-edition = "2024"
+edition = "2021"
 autoexamples = false
 
 build = "bindings/rust/build.rs"

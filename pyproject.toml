@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tree-sitter-metal"
-description = "Metal grammer for tree-sitter parsing"
+description = "Metal grammar for tree-sitter"
 version = "0.1.0"
 keywords = ["incremental", "parsing", "tree-sitter", "metal"]
 classifiers = [
